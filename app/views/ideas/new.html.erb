@@ -1,0 +1,30 @@
+<h3>
+We generate a new idea here
+</h3>
+
+
+<%= form_for(@idea) do |f| %>
+  <% if @idea.errors.present? %>
+    <p>
+      <%= @idea.errors.full_messages.join(', ') %>
+    </p>
+  <% end %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<%#
+  For more on form helpers, go to:
+  http://guides.rubyonrails.org/form_helpers.html
+%>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IdeasQuizTwo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    
+  </head>
+
+  <body>
+
+    <%= link_to 'New Idea', new_idea_path %>
+    |
+    <%= link_to 'Ideas', ideas_path %>
+
+
+      <% if user_signed_in? %>
+        Hello <%= current_user.full_name %>,
+        <%= link_to "Logout", sessions_path, method: :delete,
+                  data: {confirm: "are you sure you want to log out?"}%>
+      <% else %>
+        <%= link_to "Login", new_sessions_path %> |
+        <%= link_to "Sign Up", new_user_path %>
+      <% end %>
+      <hr>
+
+
+    <%= yield %>
+  </body>
+</html>

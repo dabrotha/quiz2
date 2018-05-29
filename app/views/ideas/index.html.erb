@@ -1,0 +1,39 @@
+<h2>
+Welcome to the Idea Factory!
+</h2>
+<p>This is our ideas index</p>
+
+
+
+<% @ideas.each do |idea|  %>
+  <div>
+    <h2><%= link_to idea.title, idea_path(idea) %></h2>
+    <button id="plus" type="button">+</button>
+    <button id="minus" type="button" onclick="this.hide">-</button>
+    <p hidden><%= idea.description %></p>
+    <hr>
+  </div>
+<% end %>
+
+  <script type="text/javascript">
+
+
+document.querySelectorAll("#plus").forEach(node => {
+
+  node.addEventListener('click', e => {
+	node.style.display = "none";
+  node.nextElementSibling.style.display = "inline";
+  
+	});
+});
+
+document.querySelectorAll("#minus").forEach(node => {
+
+  node.addEventListener('click', e => {
+	node.style.display = "none";
+  node.previousElementSibling.style.display = "inline";
+	});
+});
+
+  </script>
+  
